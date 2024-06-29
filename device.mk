@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Dynamic partition stuff
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
