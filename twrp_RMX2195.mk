@@ -28,3 +28,26 @@ PRODUCT_NAME := twrp_RMX2195
 PRODUCT_BRAND := realme
 PRODUCT_MODEL := realme C15 Qualcomm
 PRODUCT_MANUFACTURER := realme
+
+PRODUCT_SHIPPING_API_LEVEL := 29
+
+# Dynamic partition stuff
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
+# Apex libraries
+PRODUCT_COPY_FILES += \
+    $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libandroidicu.so \
+    $(OUT_DIR)/target/product/$(PRODUCT_RELEASE_NAME)/obj/SHARED_LIBRARIES/libandroidicu_intermediates/libandroidicu.so:$(TARGET_COPY_OUT_RECOVERY)/root/system/lib64/libcuuc.so
+
+# Fastbootd stuff
+PRODUCT_PACKAGES += \
+    android.hardware.fastboot@1.0-impl-mock
+
+PRODUCT_PACKAGES_ENG += \
+    qcom_decrypt \
+    qcom_decrypt_fbe
+
+# Bypass anti-rollback ROMs protection
+# Set build date to Jan 1 2009 00:00:00
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.date.utc=1230768000
